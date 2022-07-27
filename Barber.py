@@ -17,7 +17,7 @@ date_end_iso = datetime.strptime(date_end, "%Y-%m-%d")
 interval = days_work + days_skip
 # период составления расписания форматированный в int
 end = int(((date_end_iso - date_start_iso).__str__())[:2])
-#
+# генерация массива с датами
 date_new_work = []
 for y in takewhile(lambda y: y < end, count(0, interval)):
     if days_work > 0:    #range(0, end, interval):
@@ -27,16 +27,4 @@ for y in takewhile(lambda y: y < end, count(0, interval)):
     date_new_work.append(delta)
 print(date_new_work)
 
-# a = input()
-# def data_45(a):
-#     result = ''
-#     for char in a:
-#         if char == ']' or char =='[':
-#             result = result + ''
-#         #elif char == '-':
-#          #   result = result + '.'
-#         else:
-#             result = result + char
-#     return result
-#
-# [data_start, date_end, x, y] = data_45(a).split(',')
+

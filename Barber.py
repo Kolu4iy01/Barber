@@ -11,7 +11,7 @@ days_skip = int(input(
     'Сколько дней после этого отдыхает: '))
 
 
-def data_interval(date_start, date_end, days_work, days_skip):
+def data_interval(date_start=date_start, date_end=date_end, days_work=days_work, days_skip=days_skip):
         # форматирование строчной даты в datetime
     date_start_iso = datetime.strptime(date_start, "%Y-%m-%d")
     date_end_iso = datetime.strptime(date_end, "%Y-%m-%d")
@@ -23,12 +23,10 @@ def data_interval(date_start, date_end, days_work, days_skip):
     date_new_work = []
     for y in takewhile(lambda y: y < end, count(0, interval)):           # range(0, end, interval):
         if days_work > 0:
-            delta = ((date_start_iso + timedelta(days=y)).__str__())[:10]
+            date_new_work.append(((date_start_iso + timedelta(days=y)).__str__())[:10])
         else:
             break
-        date_new_work.append(delta)
+    print(date_new_work)
 
 
-print(data_interval())
-
-
+data_interval()
